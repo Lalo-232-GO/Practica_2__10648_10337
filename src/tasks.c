@@ -150,6 +150,7 @@ void tasks_create_all(void)
                       3,
                       &s_task_handles[2]);
         configASSERT(ret == pdPASS);
+        // Comentario para punto de control
 
     ESP_LOGI("TASKS", "Tres tareas creadas correctamente");
 }
