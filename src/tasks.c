@@ -133,6 +133,8 @@ void tasks_create_all(void)
         configASSERT(ret == pdPASS);
    /* TODO  Task Create Canal 1 - Prioridad 2 (menor) */
 
+   // Comentario para punto de control
+
    ret = xTaskCreate(vTaskPotLED,
                       "PotLED_1",
                       TASK_STACK_SIZE_WORDS,
