@@ -80,16 +80,14 @@ void vTaskPotLED(void *pvParameters)
         uint16_t adc_raw = adc_reader_get_raw(cfg->adc_channel);
 
         /* TODO  2. Escalar a duty PWM de 8 bits [0, 255] */
-        ledc_duty_t Adc_value = (adc_raw * LED_PWM_MAX_DUTY) / ADC_MAX_VALUE;
-
+        uint16_t led_duty = adc_reader_to_duty(adc_raw);
         /* TODO 3. Aplicar brillo al LED correspondiente */
-        leds_set_duty(cfg->led_channel, Adc_value);
-
+        leds_set_duty(cfg->led_channel, led_duty);
         /* TODO    4. Imprimir estado periodicamente (cada TASK_LOG_EVERY_N ciclos),raw, duty, name
          *    para no saturar el puerto UART */
         if (cycle_count % TASK_LOG_EVERY_N == 0) {
             ESP_LOGI(TAG, "[%s] ADC raw: %u -> LED duty: %u",
-                     cfg->name, adc_raw, Adc_value);
+                     cfg->name, adc_raw, led_duty);
         }
         cycle_count++;
 

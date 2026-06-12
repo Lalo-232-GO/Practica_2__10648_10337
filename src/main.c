@@ -43,6 +43,7 @@ void app_main(void)
 {
     /* TODO 1. Inicializar subsistema ADC (tres potenciometros) */
     // Comentario para tener los 2 commits
+    // Ya pude compilar y ejecutar el código 
     adc_reader_init();
     /* TODO 2. Inicializar subsistema LED PWM (tres canales LEDC) */
     leds_init();
